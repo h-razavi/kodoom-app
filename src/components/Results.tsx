@@ -1,4 +1,5 @@
 import { OptionType } from "../utils/types";
+import Navbar from "./Navbar";
 
 function Results() {
   //Load title and data from local storage and sort
@@ -38,9 +39,11 @@ function Results() {
   }
 
   return (
+    <>
+    <Navbar />
     <section className="border-2 border-white text-white mt-8 mx-auto rounded-lg w-3/4">
       {listTitle && (
-        <h2 className="text-center text-4xl mt-8 w-fit mx-auto p-4 rounded-md bg-purple-400 text-black">
+        <h2 className="text-center text-4xl mt-8 w-fit mx-auto p-4 rounded-md bg-amber-400 bg-opacity-40 text-white">
           {listTitle}
         </h2>
       )}
@@ -75,6 +78,7 @@ function Results() {
         </button>
       </div>
     </section>
+    </>
   );
 }
 

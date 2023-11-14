@@ -4,7 +4,7 @@ import { Navigate } from "react-router-dom";
 
 import OptionsForm from "./components/OptionsForm";
 import Selection from "./components/Selection";
-
+import Navbar from "./components/Navbar";
 
 function App() {
   const [currentComponentIndex, setCurrentComponentIndex] = useState(0);
@@ -22,7 +22,7 @@ function App() {
       component: <Navigate to="/results" />,
       id: "c3",
     },
-  ]
+  ];
 
   function handleComponentChange() {
     setCurrentComponentIndex((prevComponentIndex) => {
@@ -33,13 +33,12 @@ function App() {
         return 0;
       }
     });
-    console.log("clicked", currentComponentIndex);
   }
 
   return (
     <>
-      <main className="text-white px-16 py-24">
-        <h1 className="text-3xl font-bold text-center">کدوم یکی؟</h1>
+    <Navbar />
+      <main className="text-white px-16 py-12">
         {componentFlow[currentComponentIndex].component}
       </main>
     </>

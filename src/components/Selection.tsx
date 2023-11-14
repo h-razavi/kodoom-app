@@ -60,7 +60,7 @@ function Selection({ onNext }: Props) {
   return (
     <>
       {listTitle && (
-        <h2 className="text-center text-4xl mt-8 w-fit mx-auto p-4 rounded-md bg-purple-400 text-black">
+        <h2 className="text-center text-4xl mt-8 w-fit mx-auto p-4 rounded-md leading-0 bg-amber-400 bg-opacity-40">
           {listTitle}
         </h2>
       )}

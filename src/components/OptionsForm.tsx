@@ -97,6 +97,7 @@ function OptionsForm({ onNext }: Props) {
             autoFocus={index === inputs.length - 1}
             placeholder="متن گزینه خود را اینجا بنویسید"
             className="w-full px-3 h-10 rounded-md"
+            max={100}
           />
           <button
             className="bg-slate-500 bg-opacity-50 h-10 w-10 rounded-md mr-2 hover:bg-red-500 hover:bg-opacity-40"

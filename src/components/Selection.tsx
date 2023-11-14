@@ -1,0 +1,92 @@
+import { useState, useEffect } from "react";
+//
+import { OptionType } from "../utils/types";
+
+type Props = {
+  onNext: () => void;
+};
+
+function Selection({ onNext }: Props) {
+  const [options, setOptions] = useState<OptionType[]>([]);
+  const [pairs, setPairs] = useState<OptionType[][]>([]);
+  const [selectedPairIndex, setSelectedPairIndex] = useState(0);
+
+  //Get title from local storage
+  const listTitle = localStorage.getItem("title") || "";
+
+  useEffect(() => {
+    //Get data from local storage
+    const inputs = JSON.parse(
+      localStorage.getItem("inputs") || "[]"
+    ) as OptionType[];
+    setOptions(inputs);
+
+    //Generate pairs
+    function generatePairs() {
+      const pairs: OptionType[][] = [];
+      const optionsCopy: OptionType[] = [...inputs];
+
+      // Randomize the order of the options
+      for (let i = optionsCopy.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [optionsCopy[i], optionsCopy[j]] = [optionsCopy[j], optionsCopy[i]];
+      }
+
+      // Generate all possible pairs
+      for (let i = 0; i < optionsCopy.length; i++) {
+        for (let j = i + 1; j < optionsCopy.length; j++) {
+          pairs.push([optionsCopy[i], optionsCopy[j]]);
+        }
+      }
+      return pairs;
+    }
+    setPairs(generatePairs());
+  }, []);
+
+
+  function handleOptionSelection(option: OptionType) {
+    const newOptions = options.map((opt) =>
+      opt.text === option.text ? { ...opt, points: opt.points + 1 } : opt
+    );
+    setOptions(newOptions);
+    setSelectedPairIndex((prevIndex) => prevIndex + 1);
+    console.log(selectedPairIndex);
+    if (selectedPairIndex === pairs.length - 1) {
+      localStorage.setItem("inputs", JSON.stringify(newOptions));
+      onNext();
+    }
+  }
+
+  return (
+    <>
+      {listTitle && (
+        <h2 className="text-center text-4xl mt-8 w-fit mx-auto p-4 rounded-md bg-purple-400 text-black">
+          {listTitle}
+        </h2>
+      )}
+      <h2 className="text-center text-2xl mt-8">
+        از بین دو گزینه زیر کدوم رو انتخاب می‌کنید؟
+      </h2>
+      <div className="w-1/2 h-48 mx-auto mt-8 flex gap-6 justify-center rounded-3xl">
+        <div className="w-1/2 flex justify-center place-items-center p-12 bg-slate-800 border-white rounded-xl hover:bg-green-500 hover:bg-opacity-60">
+          <button
+            onClick={() => handleOptionSelection(pairs[selectedPairIndex][0])}
+            className="bg-sky-400 bg-opacity-50 w-36 h-36 flex items-center justify-center text-center text-xl rounded-xl overflow-clip hover:bg-slate-500"
+          >
+            {pairs[selectedPairIndex] && pairs[selectedPairIndex][0]?.text}
+          </button>
+        </div>
+        <div className="w-1/2 flex justify-center place-items-center p-12 bg-slate-800 border-white rounded-xl hover:bg-green-500 hover:bg-opacity-60">
+          <button
+            onClick={() => handleOptionSelection(pairs[selectedPairIndex][1])}
+            className="bg-sky-400 bg-opacity-50 w-36 h-36 flex items-center justify-center text-center text-xl rounded-xl overflow-clip hover:bg-slate-500"
+          >
+            {pairs[selectedPairIndex] && pairs[selectedPairIndex][1]?.text}
+          </button>
+        </div>
+      </div>
+    </>
+  );
+}
+
+export default Selection;

@@ -1,7 +1,11 @@
+import { useState } from "react";
 import { OptionType } from "../utils/types";
 import Navbar from "./Navbar";
+import Alert from "./Alert";
+import Footer from "./Footer";
 
 function Results() {
+  const [alert , setAlert] = useState<string>("")
   //Load title and data from local storage and sort
   const reusltsData: OptionType[] = JSON.parse(
     localStorage.getItem("inputs") || "[]"
@@ -22,14 +26,17 @@ function Results() {
     const shareListLink = `${window.location.origin}/?data=${shareableList}`;
     if (type === "results") {
       navigator.clipboard.writeText(shareResultsLink).then(() => {
-        alert("اطلاعات با موفقیت کپی شد");
+        setAlert("اطلاعات با موفقیت کپی شد");
       });
     }
     if (type === "list") {
       navigator.clipboard.writeText(shareListLink).then(() => {
-        alert("لیست با موفقیت کپی شد");
+        setAlert("لیست با موفقیت کپی شد");
       });
     }
+    setTimeout(() => {
+      setAlert("")
+    }, 3000)
   }
 
   //Reset list and return to home
@@ -41,7 +48,8 @@ function Results() {
   return (
     <>
     <Navbar />
-    <section className="border-2 border-white text-white mt-8 mx-auto rounded-lg w-3/4">
+    <section className="border-2 border-white text-white mt-8 mx-auto rounded-3xl shadow-xl bg-sky-950 bg-opacity-80 w-1/2">
+      {alert?<Alert text={alert} closeError={()=>setAlert("")} /> : ""}
       {listTitle && (
         <h2 className="text-center text-4xl mt-8 w-fit mx-auto p-4 rounded-md bg-amber-400 bg-opacity-40 text-white">
           {listTitle}
@@ -57,15 +65,15 @@ function Results() {
           </li>
         ))}
       </ol>
-      <div className="flex flex-col justify-center">
+      <div className="flex flex-col justify-center gap-4">
         <button
-          className="text-slate-600  h-10 rounded-md text-lg underline hover:bg-opacity-100"
+          className="text-slate-400  h-10 rounded-md text-lg underline hover:bg-opacity-100"
           onClick={() => copyToClipboard("results")}
         >
           اشتراک نتایج
         </button>
         <button
-          className="text-slate-600 h-10 rounded-md text-lg underline hover:bg-opacity-100"
+          className="text-slate-400 h-10 rounded-md text-lg underline hover:bg-opacity-100"
           onClick={() => copyToClipboard("list")}
         >
           اشتراک نظرسنجی
@@ -78,6 +86,7 @@ function Results() {
         </button>
       </div>
     </section>
+    <Footer />
     </>
   );
 }

@@ -58,7 +58,7 @@ function Selection({ onNext }: Props) {
   }
 
   return (
-    <>
+    <div className="bg-sky-950 w-1/2 mx-auto p-12 bg-opacity-80 rounded-3xl border-2 border-white shadow-xl">
       {listTitle && (
         <h2 className="text-center text-4xl mt-8 w-fit mx-auto p-4 rounded-md leading-0 bg-amber-400 bg-opacity-40">
           {listTitle}
@@ -67,7 +67,7 @@ function Selection({ onNext }: Props) {
       <h2 className="text-center text-2xl mt-8">
         از بین دو گزینه زیر کدوم رو انتخاب می‌کنید؟
       </h2>
-      <div className="w-1/2 h-48 mx-auto mt-8 flex gap-6 justify-center rounded-3xl">
+      <div className=" h-48 mx-auto mt-8 flex gap-6 justify-center rounded-3xl">
         <div className="w-1/2 flex justify-center place-items-center p-12 bg-slate-800 border-white rounded-xl hover:bg-green-500 hover:bg-opacity-60">
           <button
             onClick={() => handleOptionSelection(pairs[selectedPairIndex][0])}
@@ -85,7 +85,7 @@ function Selection({ onNext }: Props) {
           </button>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

@@ -5,6 +5,7 @@ import { Navigate } from "react-router-dom";
 import OptionsForm from "./components/OptionsForm";
 import Selection from "./components/Selection";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 function App() {
   const [currentComponentIndex, setCurrentComponentIndex] = useState(0);
@@ -38,9 +39,10 @@ function App() {
   return (
     <>
     <Navbar />
-      <main className="text-white px-16 py-12">
+      <main className="text-white px-16 py-12 ">
         {componentFlow[currentComponentIndex].component}
       </main>
+      <Footer />
     </>
   );
 }

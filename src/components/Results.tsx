@@ -26,12 +26,12 @@ function Results() {
     const shareListLink = `${window.location.origin}/?data=${shareableList}`;
     if (type === "results") {
       navigator.clipboard.writeText(shareResultsLink).then(() => {
-        setAlert("اطلاعات با موفقیت کپی شد");
+        setAlert(" اطلاعات با موفقیت کپی شد. لینک کپی شده را برای دوستانتان ارسال کنید.");
       });
     }
     if (type === "list") {
       navigator.clipboard.writeText(shareListLink).then(() => {
-        setAlert("لیست با موفقیت کپی شد");
+        setAlert("لیست با موفقیت کپی شد. لینک کپی شده را برای دوستانتان ارسال کنید.");
       });
     }
     setTimeout(() => {
@@ -48,7 +48,7 @@ function Results() {
   return (
     <>
     <Navbar />
-    <section className="border-2 border-white text-white mt-8 mx-auto rounded-3xl shadow-xl bg-sky-950 bg-opacity-80 w-1/2">
+    <section className="border-2 border-white text-white my-8 mx-auto rounded-3xl shadow-xl bg-sky-950 bg-opacity-80 w-1/2">
       {alert?<Alert text={alert} closeError={()=>setAlert("")} /> : ""}
       {listTitle && (
         <h2 className="text-center text-4xl mt-8 w-fit mx-auto p-4 rounded-md bg-amber-400 bg-opacity-40 text-white">

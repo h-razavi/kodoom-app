@@ -50,7 +50,6 @@ function Selection({ onNext }: Props) {
     );
     setOptions(newOptions);
     setSelectedPairIndex((prevIndex) => prevIndex + 1);
-    console.log(selectedPairIndex);
     if (selectedPairIndex === pairs.length - 1) {
       localStorage.setItem("inputs", JSON.stringify(newOptions));
       onNext();

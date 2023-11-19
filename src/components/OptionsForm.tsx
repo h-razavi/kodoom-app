@@ -75,7 +75,7 @@ function OptionsForm({ onNext }: Props) {
 
   return (
     <form
-      className="flex flex-col gap-5 items-center w-1/2 mx-auto py-8 text-black bg-sky-950 bg-opacity-80 rounded-3xl border-2 border-white shadow-xl"
+      className="flex flex-col gap-5 items-center lg:w-1/2 w-full mx-auto py-8 px-2 text-black bg-sky-950 bg-opacity-80 rounded-3xl border-2 border-white shadow-xl"
       onSubmit={handleSubmit}
     >
       {hasError && (
@@ -88,14 +88,14 @@ function OptionsForm({ onNext }: Props) {
         گزینه‌های خودتون رو اضافه کنید
       </h2>
       <input
-        className="w-1/2 px-3 h-10 rounded-md bg-slate-500 bg-opacity-50 text-white"
+        className="md:w-1/2 w-full placeholder:text-md md:placeholder:text-lg px-3 h-10 rounded-md bg-slate-500 bg-opacity-50 text-white"
         type="text"
         placeholder="عنوان لیست خود را اینجا بنویسید (اختیاری)"
         onChange={handleTitleChange}
         defaultValue={localStorage.getItem("title") || ""}
       />
       {inputs.map((input, index) => (
-        <div className="flex items-center w-1/2" key={index}>
+        <div className="flex items-center justify-between w-full md:w-1/2" key={index}>
           <input
             type="text"
             key={index}
@@ -104,7 +104,7 @@ function OptionsForm({ onNext }: Props) {
             onKeyDown={handleKeyPress}
             autoFocus={index === inputs.length - 1}
             placeholder="متن گزینه خود را اینجا بنویسید"
-            className="w-full px-3 h-10 rounded-md"
+            className="w-full px-3 h-10 rounded-md placeholder:text-md"
             required
             max={100}
           />
@@ -117,18 +117,18 @@ function OptionsForm({ onNext }: Props) {
         </div>
       ))}
       <button
-        className="bg-sky-500 bg-opacity-80 w-1/2 h-10 rounded-full text-2xl hover:bg-opacity-100"
+        className="bg-sky-500 bg-opacity-80 w-full md:w-1/2 h-10 rounded-full text-2xl hover:bg-opacity-100"
         onClick={handleAddInput}
       >
         +
       </button>
       <button
-        className="bg-green-500 bg-opacity-80 w-1/2 h-10 rounded-full hover:bg-opacity-100"
+        className="bg-green-500 bg-opacity-80 w-full md:w-1/2 h-10 rounded-full hover:bg-opacity-100"
         onClick={handleReset}
       >
         <img src={refreshIcon} alt="refresh" className="h-6 mx-auto" />
       </button>
-      <button className="bg-purple-500 bg-opacity-80 w-1/2 h-10 rounded-full text-lg text-white hover:bg-opacity-100">
+      <button className="bg-purple-500 bg-opacity-80 w-full md:w-1/2 h-10 rounded-full text-lg text-white hover:bg-opacity-100">
         بریم برای رده‌بندی
       </button>
     </form>

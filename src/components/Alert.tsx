@@ -7,7 +7,7 @@ type Props = {
 function Alert({text, closeError} : Props) {
   return (
 <>
-  <div className="text-white px-6 py-4 flex items-center justify-center border-0 rounded relative bg-pink-700 w-1/2 mx-auto mt-2">
+  <div className="text-white px-6 py-4 flex items-center justify-center border-0 rounded relative bg-pink-700 md:w-1/2 w-4/5 mx-auto mt-2">
     <span className="text-xl inline-block mr-5 align-middle">
     </span>
     <span className="inline-block align-middle mr-8">

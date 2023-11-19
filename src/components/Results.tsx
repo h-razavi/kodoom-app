@@ -48,7 +48,7 @@ function Results() {
   return (
     <>
     <Navbar />
-    <section className="border-2 border-white text-white my-8 mx-auto rounded-3xl shadow-xl bg-sky-950 bg-opacity-80 w-1/2">
+    <section className="border-2 border-white text-white my-8 mx-auto rounded-3xl shadow-xl bg-sky-950 bg-opacity-80 md:w-1/2">
       {alert?<Alert text={alert} closeError={()=>setAlert("")} /> : ""}
       {listTitle && (
         <h2 className="text-center text-4xl mt-8 w-fit mx-auto p-4 rounded-md bg-amber-400 bg-opacity-40 text-white">
@@ -61,7 +61,7 @@ function Results() {
       <ol className="list-decimal p-8 mx-auto w-fit text-xl">
         {reusltsData.map((result) => (
           <li className="my-4 bg-slate-700 px-4 py-2 rounded-lg">
-            <p className="text-center">{result.text}</p>
+            <p className="text-center break-all">{result.text}</p>
           </li>
         ))}
       </ol>

@@ -57,7 +57,7 @@ function Selection({ onNext }: Props) {
   }
 
   return (
-    <div className="bg-sky-950 w-1/2 mx-auto p-12 bg-opacity-80 rounded-3xl border-2 border-white shadow-xl">
+    <div className="bg-sky-950 h-full lg:w-1/2 mx-auto p-12 bg-opacity-80 rounded-3xl border-2 border-white shadow-xl">
       {listTitle && (
         <h2 className="text-center text-4xl mt-8 w-fit mx-auto p-4 rounded-md leading-0 bg-amber-400 bg-opacity-40">
           {listTitle}
@@ -66,19 +66,19 @@ function Selection({ onNext }: Props) {
       <h2 className="text-center text-2xl mt-8">
         از بین دو گزینه زیر کدوم رو انتخاب می‌کنید؟
       </h2>
-      <div className=" h-48 mx-auto mt-8 flex gap-6 justify-center rounded-3xl">
-        <div className="w-1/2 flex justify-center place-items-center p-12 bg-slate-800 border-white rounded-xl hover:bg-green-500 hover:bg-opacity-60">
+      <div className=" h-fit mx-auto mt-8 flex flex-col items-center md:flex-row gap-6 rounded-3xl">
+        <div className="md:w-1/2 flex justify-center place-items-center p-12 bg-slate-800 border-white rounded-xl hover:bg-green-500 hover:bg-opacity-60">
           <button
             onClick={() => handleOptionSelection(pairs[selectedPairIndex][0])}
-            className="bg-sky-400 bg-opacity-50 w-36 h-36 flex items-center justify-center text-center text-xl rounded-xl overflow-clip hover:bg-slate-500"
+            className="bg-sky-400 bg-opacity-50 w-36 h-36 overflow-hidden text-ellipsis break-all  flex items-center justify-center break-all text-center text-xl rounded-xl overflow-clip hover:bg-slate-500"
           >
             {pairs[selectedPairIndex] && pairs[selectedPairIndex][0]?.text}
           </button>
         </div>
-        <div className="w-1/2 flex justify-center place-items-center p-12 bg-slate-800 border-white rounded-xl hover:bg-green-500 hover:bg-opacity-60">
+        <div className="md:w-1/2 flex justify-center place-items-center p-12 bg-slate-800 border-white rounded-xl hover:bg-green-500 hover:bg-opacity-60">
           <button
             onClick={() => handleOptionSelection(pairs[selectedPairIndex][1])}
-            className="bg-sky-400 bg-opacity-50 w-36 h-36 flex items-center justify-center text-center text-xl rounded-xl overflow-clip hover:bg-slate-500"
+            className="bg-sky-400 bg-opacity-50 w-36 h-36 overflow-hidden text-ellipsis  flex items-center justify-center text-center text-xl rounded-xl overflow-clip hover:bg-slate-500"
           >
             {pairs[selectedPairIndex] && pairs[selectedPairIndex][1]?.text}
           </button>

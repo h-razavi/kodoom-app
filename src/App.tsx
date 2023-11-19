@@ -39,7 +39,7 @@ function App() {
   return (
     <>
     <Navbar />
-      <main className="text-white px-16 py-12 ">
+      <main className="text-white md:px-16 px-8 py-12">
         {componentFlow[currentComponentIndex].component}
       </main>
       <Footer />

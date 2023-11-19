@@ -7,8 +7,12 @@ import Selection from "./components/Selection";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
+import {useTranslation} from "react-i18next"
+
 function App() {
   const [currentComponentIndex, setCurrentComponentIndex] = useState(0);
+
+  const {i18n: {language}} = useTranslation();
 
   const componentFlow = [
     {
@@ -37,13 +41,13 @@ function App() {
   }
 
   return (
-    <>
+    <div dir={language === "fa" ? "rtl" : "ltr"}>
     <Navbar />
       <main className="text-white md:px-16 px-8 py-12">
         {componentFlow[currentComponentIndex].component}
       </main>
       <Footer />
-    </>
+    </div>
   );
 }
 

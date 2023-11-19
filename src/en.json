@@ -1,0 +1,19 @@
+{
+    "translation" : {
+        "mainTitle" : "Which One?",
+        "formTitle" : "Add Your Options",
+        "titleInputPlacholder" : "Enter Your List Title (optional)",
+        "optionInputPlacholder" : "Enter Your Option Here",
+        "formNextButton" : "Let's Start",
+        "formAlertText" : "Please add at least three options.",
+        "selectionTitle" : "Which of these two options would you choose?",
+        "resultsPageTitle" : "Results Ranked",
+        "shareResults" : "Share Results",
+        "resultsSharedAlert" : "Results copied to clipboard successfully. Paste the link to share with your friends.",
+        "sharePoll" : "Share Poll",
+        "sharePollAlert" : "List copied to clipboard successfully. Paste the link to share with your friends.", 
+        "restartFormButton" : "Restart",
+        "footerText" : "Designed & Developed by",
+        "myName" : "Hossain Razavi"
+    }
+}

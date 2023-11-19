@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 //
 import { useLocation } from "react-router-dom";
 //
+import {useTranslation} from "react-i18next";
+//
 import { OptionType } from "../utils/types";
 //
 import refreshIcon from "../components/icons/refresh.svg";
@@ -21,6 +23,10 @@ function OptionsForm({ onNext }: Props) {
   const initialData = sharedData ? JSON.parse(sharedData) : [newInput];
   const [inputs, setInputs] = useState<OptionType[]>(initialData);
   const [hasError, setHasError] = useState<boolean>(false);
+
+  const{t} = useTranslation();
+
+  console.log(t("formTitle"));
 
   useEffect(() => {
     localStorage.setItem("inputs", JSON.stringify(inputs));
@@ -80,17 +86,17 @@ function OptionsForm({ onNext }: Props) {
     >
       {hasError && (
         <Alert
-          text="لطفا حداقل سه گزینه را وارد کنید"
+          text={t('formAlertText')}
           closeError={() => setHasError(false)}
         />
       )}
       <h2 className="text-xl text-center text-white">
-        گزینه‌های خودتون رو اضافه کنید
+        {t('formTitle')}
       </h2>
       <input
         className="md:w-1/2 w-full placeholder:text-md md:placeholder:text-lg px-3 h-10 rounded-md bg-slate-500 bg-opacity-50 text-white"
         type="text"
-        placeholder="عنوان لیست خود را اینجا بنویسید (اختیاری)"
+        placeholder={t("titleInputPlacholder")}
         onChange={handleTitleChange}
         defaultValue={localStorage.getItem("title") || ""}
       />
@@ -103,7 +109,7 @@ function OptionsForm({ onNext }: Props) {
             onChange={(event) => handleInputChange(index, event)}
             onKeyDown={handleKeyPress}
             autoFocus={index === inputs.length - 1}
-            placeholder="متن گزینه خود را اینجا بنویسید"
+            placeholder={t("optionInputPlacholder")}
             className="w-full px-3 h-10 rounded-md placeholder:text-md"
             required
             max={100}
@@ -129,7 +135,7 @@ function OptionsForm({ onNext }: Props) {
         <img src={refreshIcon} alt="refresh" className="h-6 mx-auto" />
       </button>
       <button className="bg-purple-500 bg-opacity-80 w-full md:w-1/2 h-10 rounded-full text-lg text-white hover:bg-opacity-100">
-        بریم برای رده‌بندی
+          {t("formNextButton")}
       </button>
     </form>
   );

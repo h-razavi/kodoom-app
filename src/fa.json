@@ -1,0 +1,19 @@
+{
+    "translation" : {
+        "mainTitle" : "کدوم یکی؟",
+        "formTitle" : "گزینه‌های خودتون رو اضافه کنید",
+        "titleInputPlacholder" : "عنوان لیست خود را اینجا بنویسید (اختیاری)",
+        "optionInputPlacholder" : "متن گزینه خود را اینجا بنویسید",
+        "formNextButton" : "بریم برای رده‌بندی",
+        "formAlertText" : "لطفا حداقل سه گزینه را وارد کنید",
+        "selectionTitle" : "از بین دو گزینه زیر کدوم رو انتخاب می‌کنید؟",
+        "resultsPageTitle" : "نتایج رده‌بندی",
+        "shareResults" : "اشتراک نتایج",
+        "resultsSharedAlert" : " اطلاعات با موفقیت کپی شد. لینک کپی شده را برای دوستانتان ارسال کنید.",
+        "sharePoll" : "اشتراک نظرسنجی",
+        "sharePollAlert" : "لیست با موفقیت کپی شد. لینک کپی شده را برای دوستانتان ارسال کنید.",
+        "restartFormButton" : "از اول",
+        "footerText" : "طراحی و توسعه توسط",
+        "myName" : "حسین رضوی"
+    }
+}

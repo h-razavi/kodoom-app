@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 //
 import { OptionType } from "../utils/types";
+//
+import {useTranslation} from "react-i18next";
 
 type Props = {
   onNext: () => void;
@@ -10,6 +12,8 @@ function Selection({ onNext }: Props) {
   const [options, setOptions] = useState<OptionType[]>([]);
   const [pairs, setPairs] = useState<OptionType[][]>([]);
   const [selectedPairIndex, setSelectedPairIndex] = useState(0);
+  
+  const {t} = useTranslation();
 
   //Get title from local storage
   const listTitle = localStorage.getItem("title") || "";
@@ -64,7 +68,7 @@ function Selection({ onNext }: Props) {
         </h2>
       )}
       <h2 className="text-center text-2xl mt-8">
-        از بین دو گزینه زیر کدوم رو انتخاب می‌کنید؟
+        {t("selectionTitle")}
       </h2>
       <div className=" h-fit mx-auto mt-8 flex flex-col items-center md:flex-row gap-6 rounded-3xl">
         <div className="md:w-1/2 flex justify-center place-items-center p-12 bg-slate-800 border-white rounded-xl hover:bg-green-500 hover:bg-opacity-60">

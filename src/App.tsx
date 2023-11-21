@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState , useEffect } from "react";
 
 import { Navigate } from "react-router-dom";
 
@@ -12,7 +12,13 @@ import {useTranslation} from "react-i18next"
 function App() {
   const [currentComponentIndex, setCurrentComponentIndex] = useState(0);
 
-  const {i18n: {language}} = useTranslation();
+  const {i18n: {language , changeLanguage}} = useTranslation();
+
+  useEffect(() => {
+    const defaultLanguage = localStorage.getItem("language") || "fa";
+    changeLanguage(defaultLanguage);    
+  })
+
 
   const componentFlow = [
     {

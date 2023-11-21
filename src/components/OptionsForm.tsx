@@ -26,8 +26,6 @@ function OptionsForm({ onNext }: Props) {
 
   const{t} = useTranslation();
 
-  console.log(t("formTitle"));
-
   useEffect(() => {
     localStorage.setItem("inputs", JSON.stringify(inputs));
   }, [inputs]);

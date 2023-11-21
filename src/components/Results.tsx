@@ -44,7 +44,7 @@ function Results() {
 
   //Reset list and return to home
   function resetList() {
-    localStorage.clear();
+    localStorage.removeItem("inputs");
     window.location.replace("/");
   }
 

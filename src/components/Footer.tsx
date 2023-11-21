@@ -17,7 +17,7 @@ function Footer() {
         className={footerButtonClassName}
         onClick={() => setFooterIsShown(!FooterIsShown)}
       >
-        &#9650;
+        &#11165;
       </button>
       <footer className={footerClassName}>
         <div className="flex items-center text-white">

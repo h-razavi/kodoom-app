@@ -5,10 +5,10 @@ function Footer() {
   const [FooterIsShown, setFooterIsShown] = useState(false);
   const { t } = useTranslation();
   const footerButtonClassName = `fixed bottom-0 left-8 text-2xl p-2 rounded-bl-full rounded-tr-full bg-yellow-500 text-white ${
-    FooterIsShown ? "translate-y-0 " : "-translate-y-12 -rotate-180"
+    FooterIsShown ? "-translate-y-12 -rotate-180" : "translate-y-0 "
   }`;
   const footerClassName = `w-screen h-12 bg-yellow-500 bg-opacity-50 fixed -bottom-12 px-8 flex justify-between items-center ${
-    FooterIsShown ? "translate-y-0 " : "-translate-y-12"
+    FooterIsShown ? "-translate-y-12" : "translate-y-0 "
   }`;
 
   return (

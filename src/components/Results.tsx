@@ -1,12 +1,21 @@
-import { useState } from "react";
+import { useState , useEffect } from "react";
 import { OptionType } from "../utils/types";
 import Navbar from "./Navbar";
 import Alert from "./Alert";
 import Footer from "./Footer";
+import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 function Results() {
   const [alert , setAlert] = useState<string>("")
+  const location = useLocation();
+
+  useEffect(() => {
+    const sharedData = new URLSearchParams(location.search).get("data");
+    if (sharedData) {
+      localStorage.setItem("inputs", sharedData);
+    }
+  })
 
   const {t,i18n: {language}} = useTranslation();
   //Load title and data from local storage and sort
